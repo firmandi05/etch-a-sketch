@@ -27,7 +27,7 @@ div.grid-container > div.grid-item {
   background-color: #ccc;
   width: calc(100% / 16);
   height: calc(100% / 16);
-  border: 0.5px solid #7c7c7c;
+  /* border: 0.5px solid #7c7c7c; */
 }
 
 div.grid-container > div.change-color {

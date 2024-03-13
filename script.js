@@ -49,9 +49,24 @@ function createNewGrid() {
     gridItem.classList.add("grid-item");
     gridItem.style.width = `calc(100% / ${squarePerSide})`;
     gridItem.style.height = `calc(100% / ${squarePerSide})`;
-    gridItem.addEventListener("mouseenter", (event) => {
+
+    gridItem.addEventListener("mousedown", (event) => {
+      isDrawing = true;
       event.target.classList.add("change-color");
+      console.log("enter");
     });
+
+    gridItem.addEventListener("mouseover", (event) => {
+      if (isDrawing) {
+        event.target.classList.add("change-color");
+      }
+      console.log("enter");
+    });
+
+    gridItem.addEventListener("mouseup", (event) => {
+      isDrawing = false;
+    });
+
     gridContainer.appendChild(gridItem);
   }
 }
