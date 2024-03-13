@@ -71,9 +71,19 @@ function createNewGrid() {
   }
 }
 
-const btn = document.querySelector("div.btn-container button");
-btn.addEventListener("click", (event) => {
+const btn = document.querySelector("div.btn-container button:nth-child(1)");
+btn.addEventListener("click", () => {
   return createNewGrid();
+});
+
+const btnTwo = document.querySelector("div.btn-container button:nth-child(2)");
+btnTwo.addEventListener('click', () => {
+  const gridItems = document.querySelectorAll('div.grid-item');
+
+  gridItems.forEach((gridItem) => {
+    gridItem.classList.remove('change-color');
+  })
+  
 });
 
 window.onload = createGrid;
