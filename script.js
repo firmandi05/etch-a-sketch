@@ -25,13 +25,13 @@ function createNewGrid() {
 
     gridItem.addEventListener("mousedown", (event) => {
       isDrawing = true;
-      event.target.classList.add("change-color");
+      event.target.style.backgroundColor = getRandomColor();
       console.log("enter");
     });
 
     gridItem.addEventListener("mouseover", (event) => {
       if (isDrawing) {
-        event.target.classList.add("change-color");
+        event.target.style.backgroundColor = getRandomColor();
       }
       console.log("enter");
     });
@@ -42,6 +42,10 @@ function createNewGrid() {
 
     gridContainer.appendChild(gridItem);
   }
+}
+
+function getRandomColor() {
+  return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`
 }
 
 const btn = document.querySelector("div.btn-container button:nth-child(1)");
@@ -67,13 +71,13 @@ window.onload = () => {
 
     gridItem.addEventListener("mousedown", (event) => {
       isDrawing = true;
-      event.target.style.backgroundColor = "red";
+      event.target.style.backgroundColor = getRandomColor();
       console.log("enter");
     });
 
     gridItem.addEventListener("mouseover", (event) => {
       if (isDrawing) {
-        event.target.style.backgroundColor = "red";
+        event.target.style.backgroundColor = getRandomColor();
       }
       console.log("enter");
     });
