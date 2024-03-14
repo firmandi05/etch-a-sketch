@@ -48,22 +48,7 @@ function getRandomColor() {
   return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`
 }
 
-const btn = document.querySelector("div.btn-container button:nth-child(1)");
-btn.addEventListener("click", () => {
-  return createNewGrid();
-});
-
-const btnTwo = document.querySelector("div.btn-container button:nth-child(2)");
-btnTwo.addEventListener("click", () => {
-  const gridItems = document.querySelectorAll("div.grid-item");
-
-  gridItems.forEach((gridItem) => {
-    gridItem.style.backgroundColor = "#ccc";
-  });
-});
-
-//initial grid
-window.onload = () => {
+function initialGrid() {
   const container = document.querySelector("div.grid-container");
   for (let i = 0; i < 16 * 16; i++) {
     const gridItem = document.createElement("div");
@@ -88,4 +73,21 @@ window.onload = () => {
 
     container.appendChild(gridItem);
   }
-};
+}
+
+const btn = document.querySelector("div.btn-container button:nth-child(1)");
+btn.addEventListener("click", () => {
+  return createNewGrid();
+});
+
+const btnTwo = document.querySelector("div.btn-container button:nth-child(2)");
+btnTwo.addEventListener("click", () => {
+  const gridItems = document.querySelectorAll("div.grid-item");
+
+  gridItems.forEach((gridItem) => {
+    gridItem.style.backgroundColor = "#ccc";
+  });
+});
+
+//initial grid
+window.onload = initialGrid();
