@@ -1,32 +1,5 @@
 let isDrawing = false;
 
-function createGrid() {
-  const container = document.querySelector("div.grid-container");
-  for (let i = 0; i < 16 * 16; i++) {
-    const gridItem = document.createElement("div");
-    gridItem.classList.add("grid-item");
-
-    gridItem.addEventListener("mousedown", (event) => {
-      isDrawing = true;
-      event.target.classList.add("change-color");
-      console.log("enter");
-    });
-
-    gridItem.addEventListener("mouseover", (event) => {
-      if (isDrawing) {
-        event.target.classList.add("change-color");
-      }
-      console.log("enter");
-    });
-
-    gridItem.addEventListener("mouseup", (event) => {
-      isDrawing = false;
-    });
-
-    container.appendChild(gridItem);
-  }
-}
-
 function createNewGrid() {
   let squarePerSide = prompt(
     "enter the number of square per side for the new grid (max 100):"
@@ -77,13 +50,38 @@ btn.addEventListener("click", () => {
 });
 
 const btnTwo = document.querySelector("div.btn-container button:nth-child(2)");
-btnTwo.addEventListener('click', () => {
-  const gridItems = document.querySelectorAll('div.grid-item');
+btnTwo.addEventListener("click", () => {
+  const gridItems = document.querySelectorAll("div.grid-item");
 
   gridItems.forEach((gridItem) => {
-    gridItem.classList.remove('change-color');
-  })
-  
+    gridItem.style.backgroundColor = "#ccc";
+  });
 });
 
-window.onload = createGrid;
+//initial grid
+window.onload = () => {
+  const container = document.querySelector("div.grid-container");
+  for (let i = 0; i < 16 * 16; i++) {
+    const gridItem = document.createElement("div");
+    gridItem.classList.add("grid-item");
+
+    gridItem.addEventListener("mousedown", (event) => {
+      isDrawing = true;
+      event.target.style.backgroundColor = "red";
+      console.log("enter");
+    });
+
+    gridItem.addEventListener("mouseover", (event) => {
+      if (isDrawing) {
+        event.target.style.backgroundColor = "red";
+      }
+      console.log("enter");
+    });
+
+    gridItem.addEventListener("mouseup", (event) => {
+      isDrawing = false;
+    });
+
+    container.appendChild(gridItem);
+  }
+};
