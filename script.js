@@ -26,14 +26,12 @@ function createNewGrid() {
     gridItem.addEventListener("mousedown", (event) => {
       isDrawing = true;
       event.target.style.backgroundColor = getRandomColor();
-      console.log("enter");
     });
 
     gridItem.addEventListener("mouseover", (event) => {
       if (isDrawing) {
         event.target.style.backgroundColor = getRandomColor();
       }
-      console.log("enter");
     });
 
     gridItem.addEventListener("mouseup", (event) => {
@@ -57,14 +55,12 @@ function initialGrid() {
     gridItem.addEventListener("mousedown", (event) => {
       isDrawing = true;
       event.target.style.backgroundColor = getRandomColor();
-      console.log("enter");
     });
 
     gridItem.addEventListener("mouseover", (event) => {
       if (isDrawing) {
         event.target.style.backgroundColor = getRandomColor();
       }
-      console.log("enter");
     });
 
     gridItem.addEventListener("mouseup", (event) => {
@@ -75,17 +71,19 @@ function initialGrid() {
   }
 }
 
+// button to make a new grid
 const btn = document.querySelector("div.btn-container button:nth-child(1)");
 btn.addEventListener("click", () => {
   return createNewGrid();
 });
 
+// button to clear sketch
 const btnTwo = document.querySelector("div.btn-container button:nth-child(2)");
 btnTwo.addEventListener("click", () => {
   const gridItems = document.querySelectorAll("div.grid-item");
 
   gridItems.forEach((gridItem) => {
-    gridItem.style.backgroundColor = "#ccc";
+    gridItem.style.backgroundColor = ''
   });
 });
 
